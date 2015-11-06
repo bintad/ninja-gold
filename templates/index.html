@@ -1,0 +1,60 @@
+<doctype html>
+	<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			<title>Ninja Gold!</title>
+			 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">  
+			
+		</head>
+
+		<body>
+			
+			<h1>Your Gold: {{session['count']}}</h1>
+			
+
+
+			
+
+			<div class="routes_gold">
+				<h1> Farm </h1>
+				<h3> (earns 10-20 golds) </h3>
+				<form method='post' action='/farm'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			</div>
+
+			<div class="routes_gold">
+				<h1> Cave </h1>
+				<h3> (earns 5-10 golds) </h3>
+				<form method='post' action='/cave'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			</div>
+
+			<div class="routes_gold">
+				<h1> House </h1>
+				<h3> (earns 2-5 golds) </h3>
+				<form method='post' action='/house'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			</div>
+
+			<div class="routes_gold">
+				<h1> Casino </h1>
+				<h3> (earns/takes 0-50 golds) </h3>
+				<form method='post' action='/casino'>
+					<input type='submit' value='Find Gold!'>
+				</form>
+			
+
+			</div>
+
+			<p>overflow:scroll</p>
+			<div class='scroll'>Earned {{session['just_gold']}} golds from the farm!
+
+			</div>
+
+
+		</body>
+
+</html>
