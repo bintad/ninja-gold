@@ -19,7 +19,8 @@
 				<h1> Farm </h1>
 				<h3> (earns 10-20 golds) </h3>
 				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!' name='farm'>
+					<input type='submit' value='Find Gold!' name='gold_method'>
+					<input type='hidden' name='farm' value='gold_farming'>
 				</form>
 			</div>
 
@@ -27,7 +28,8 @@
 				<h1> Cave </h1>
 				<h3> (earns 5-10 golds) </h3>
 				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!' name='cave'>
+					<input type='submit' value='Find Gold!' name='gold_method'>
+					<input type='hidden' name='cave' value='gold_caving'>
 				</form>
 			</div>
 
@@ -35,7 +37,8 @@
 				<h1> House </h1>
 				<h3> (earns 2-5 golds) </h3>
 				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!' name='house'>
+					<input type='submit' value='Find Gold!' name='gold_method'>
+					<input type='hidden' name='house' value='gold_housing'>
 				</form>
 			</div>
 
@@ -43,25 +46,14 @@
 				<h1> Casino </h1>
 				<h3> (earns/takes 0-50 golds) </h3>
 				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!' name='casino'>
+					<input type='submit' value='Find Gold!'>
+					<input type='hidden' name='gold_method' value='gold_casinoing'>
 				</form>
 			
 
 			</div>
 
-			
-
-			<div>
-			{% if session['just_gold'] < 0 and session['casino'] == 1 %}
-				<p>Entered a casino and lost {{session['just_gold']}} gold...Ouch...{{session['now']}}</p>
-			{% elif session['just_gold'] > 0 and session['casino'] == 1 %}
-				<p>Entered a casino and gained {{session['just_gold']}} gold {{session['now']}}</p>
-			{% else %}
-				<p>Earned {{session['just_gold']}} gold from the farm! {{session['now']}}</p>
-			{% endif %}
-			</div>
-
-			
+	
 
 
 		</body>

@@ -8,10 +8,12 @@ import random
 def index():
 	try:
 		session['count']
+		session['just_gold']
 		session['farm']
 		session['cave']
 		session['house'] 
 		session['casino']
+
 
 	except:
 		session['farm'] = 0
@@ -19,21 +21,11 @@ def index():
 		session['house'] = 0
 		session['casino'] = 0
 		session['count'] = 0
+		session['just_gold'] = 0
 
 
 	return render_template('index.html')
 
-
-	# try:
-	# 	session['count']
-	# 	session['just_gold']
-	# 	session['now'] 
-	# 	session['casino']
-	# except:
-	# 	session['count'] = 0
-	# 	session['just_gold'] = 0
-	# 	session['now'] = 0
-	# 	session['casino'] = 0
 
 	# return render_template('index.html', count=session['count'], just_gold=session['just_gold'], now=session['now'], casino=session['casino'])
 
@@ -45,56 +37,42 @@ def index():
 # 	session['count'] += session['just_gold']
 # 	return redirect('/')
 
-@app.route('/process_money' methods=['POST'])
+@app.route('/process_money', methods=['POST'])
 def process_gold():
 	session['now'] = datetime.now()
-	session['farm'] = request.form['farm']
-	session['cave'] = request.form['cave']
-	session['house'] = request.form['house']
-	session['casino'] = request.form['casino']
 
-	try:
-		session['farm']
-		session['cave']
-		session['house'] 
-		session['casino']
-	except:
-		session['farm'] = 0
-		session['cave'] = 0
-		session['house'] = 0
-		session['casino'] = 0
 
-	if session['farm'] == 1:
+	if request.form['gold_method'] == session['farm'] :
 		session['just_gold'] += random.randint(10,20)
 		session['count'] += session['just_gold']
+		print request.form['farm']
+		
+		session['just_gold'] = 0
 
-		session['farm'] == 0
-
-	if session['cave'] = 1:
+	if request.form['cave'] == 'gold_caving' :
 		session['just_gold'] += random.randint(5,10)
 		session['count'] += session['just_gold']
 
-		session['cave'] == 0
+		session['just_gold'] = 0
 
-	if session['house'] = 1:
-		session['just_gold'] = random.randint(2,5)
+	if request.form['gold_method'] == session['house']:
+		session['just_gold'] += random.randint(2,5)
 		session['count'] += session['just_gold']
 
-		session['house'] == 0
+		session['just_gold'] = 0
 
-	if session['casino'] = 1:
-		session['just_gold'] = random.randint()
-		num_gold = random.randin(0,50)
-		earn_or_take = random.randint(0,1)
-		if earn_or_take == 0:
-			session['just_gold'] -= num_gold
-		else:
-			session['just_gold'] += num_gold
-		session['count'] += session['just_gold']
+	if request.form['gold_method'] == 'gold_casinoing':
+		session['count'] += random.randrange(-50,50)
+		# if num_gold < 0:
+		# 	session['just_gold'] = 
+		# 	session['count'] -= session['just_gold']
+		# else:
+		# 	session['just_gold'] = num_gold
+		# 	session['count'] += session['just_gold']
 
-		session['casino'] = 0
+		session['just_gold'] = 0
 
 	return redirect('/')
 
-	app.run(debug=True)
+app.run(debug=True)
 
