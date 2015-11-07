@@ -18,43 +18,40 @@
 			<div class="routes_gold">
 				<h1> Farm </h1>
 				<h3> (earns 10-20 golds) </h3>
-				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!'>
-					<input type='hidden' name='farm' value='gold_farming'>
+				<form method='post' action='/farm'>
+					<input type='submit' value='Find Gold!' name='farm'>
 				</form>
 			</div>
 
 			<div class="routes_gold">
 				<h1> Cave </h1>
 				<h3> (earns 5-10 golds) </h3>
-				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!' name='gold_method'>
-					<input type='hidden' name='cave' value='gold_caving'>
+				<form method='post' action='/cave'>
+					<input type='submit' value='Find Gold!' name='cave'>
 				</form>
 			</div>
 
 			<div class="routes_gold">
 				<h1> House </h1>
 				<h3> (earns 2-5 golds) </h3>
-				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!' name='gold_method'>
-					<input type='hidden' name='house' value='gold_housing'>
+				<form method='post' action='/house'>
+					<input type='submit' value='Find Gold!' name='house'>
 				</form>
 			</div>
 
 			<div class="routes_gold">
 				<h1> Casino </h1>
 				<h3> (earns/takes 0-50 golds) </h3>
-				<form method='post' action='/process_money'>
-					<input type='submit' value='Find Gold!'>
-					<input type='hidden' name='gold_method' value='gold_casinoing'>
+				<form method='post' action='/casino'>
+					<input type='submit' value='Find Gold!' name='casino'>
 				</form>
 			
 
 			</div>
+		
 
-	
-
+			
+			{{session['message']}}
 
 		</body>
 
