@@ -1,18 +1,18 @@
 <doctype html>
 	<html lang="en">
-		<head>
-			<meta charset="utf-8">
-			<title>Ninja Gold!</title>
-			 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">  
-			
-		</head>
+	<head>
+		<meta charset="utf-8">
+		<title>Ninja Gold!</title>
+		 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">  
+		
+	</head>
 
-		<body>
-			
-			<h1>Your Gold: {{session['count']}}</h1>
+	<body>
+	<div id="container">
+		<h1 id='your_gold'>Your Gold: {{session['count']}}</h1>
 			
 
-
+		<div id="main_content">
 			
 
 			<div class="routes_gold">
@@ -40,19 +40,17 @@
 			</div>
 
 			<div class="routes_gold">
-				<h1> Casino </h1>
-				<h3> (earns/takes 0-50 golds) </h3>
+				<h1 id='last_childh1'> Casino </h1>
+				<h3 id='last_childh3'> (earns/takes 0-50 golds) </h3>
 				<form method='post' action='/casino'>
 					<input type='submit' value='Find Gold!' name='casino'>
 				</form>
-			
-
 			</div>
-		
 
+		</div><!-- end of main_content -->
 			
-			{{session['message']}}
-
-		</body>
+		<div>Activities: {{session['message']}}</div>
+	</div><!-- end of container -->
+	</body>
 
 </html>
