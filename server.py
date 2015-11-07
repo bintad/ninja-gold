@@ -42,7 +42,7 @@ def process_gold():
 	session['now'] = datetime.now()
 
 
-	if request.form['gold_method'] == session['farm'] :
+	if request.form['farm'] ==  'gold_farming':
 		session['just_gold'] += random.randint(10,20)
 		session['count'] += session['just_gold']
 		print request.form['farm']
