@@ -49,10 +49,19 @@
 
 			</div>
 
-			<p>overflow:scroll</p>
-			<div class='scroll'>Earned {{session['just_gold']}} golds from the farm!
+			
 
+			<div>
+			{% if session['just_gold'] < 0 and session['casino'] == 1 %}
+				<p>Entered a casino and lost {{session['just_gold']}} gold...Ouch...{{session['now']}}</p>
+			{% elif session['just_gold'] > 0 and session['casino'] == 1 %}
+				<p>Entered a casino and gained {{session['just_gold']}} gold {{session['now']}}</p>
+			{% else %}
+				<p>Earned {{session['just_gold']}} gold from the farm! {{session['now']}}</p>
+			{% endif %}
 			</div>
+
+			
 
 
 		</body>
